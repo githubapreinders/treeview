@@ -1,6 +1,6 @@
 (function()
 {
-    var app = angular.module('confab',['ui.router']);
+    var app = angular.module('confab',['ui.router','ui.tree']);
 
 
 app.config(function ($stateProvider, $urlRouterProvider)

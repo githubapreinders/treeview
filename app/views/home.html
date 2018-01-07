@@ -1,9 +1,10 @@
 
-<div ng-controller="IndexController">
-<h1>Message {{vm.message}}</h1>
-<form ng-submit="vm.submitForm()">
-<input type="text" ng-model="vm.userInput">
-    <button type="submit">Submit</button>
-</form>
-    <pre>{{vm.distortedText}}</pre>
-</div>
+<hr><hr>
+    <pre>{{vm.distortedText |json}}</pre>
+	<div style="width:40%;">
+		<div ui-tree id="tree-root">
+	      <ol ui-tree-nodes ng-model="vm.list">
+	        <li ng-repeat="node in vm.list" ui-tree-node ng-include="'./views/node_template.html'"></li>
+	      </ol>
+	    </div>
+	</div>

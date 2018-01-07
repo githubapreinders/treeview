@@ -1,11 +1,11 @@
-'use strict';
+(function()
+    {
 
-angular.module('template1', ['ui.router'])
+ 'use strict';
+angular.module('confab', ['ui.router','ui.tree'])
     .config(function ($stateProvider, $urlRouterProvider)
     {
         $stateProvider
-
-        // route for the home page
             .state('app', {
                 url: '/',
                 views: {
@@ -17,5 +17,9 @@ angular.module('template1', ['ui.router'])
             })
         ;
         $urlRouterProvider.otherwise('/');
-    })
-;
+    });
+
+}());
+
+
+

@@ -31,11 +31,11 @@ gulp.task('js', function () {
 });
 
     gulp.task('js_dev', ['checkJs'], function () {
-        gulp.src(['app/js/jquery.js','app/js/angular.js','app/js/controller.js','app/js/*.js'])
+        gulp.src(['app/scripts/*.js'])
             .pipe(sourcemaps.init())
             .pipe(concat('main.min.js'))
             .pipe(ngAnnotate())
-            .pipe(uglify())
+            //.pipe(uglify()) throws an error with ES6 class declaration TODO
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest('app/js'))
     })
@@ -43,9 +43,9 @@ gulp.task('js', function () {
 gulp.task('compile_sass',function()
 {
 return gulp.src('app/scss/**/*.scss')
-    .pipe(sass())
+    .pipe(sass().on('error',sass.logError))
     .pipe(prefixer({browsers:['last 2 versions', 'ios_saf >=5', 'safari >=7']}))
-    .pipe(gulp.dest('app/css/'))
+    .pipe(gulp.dest('app/styles/'))
     .pipe(browserSync.stream());
 });
 
@@ -57,18 +57,16 @@ gulp.task('copy_css',['compile_sass'], function()
      .pipe(gulp.dest('build'))
 });
 
-
-
-gulp.task('watch',['browser_Sync', 'compile_sass','js_dev'], function()
+gulp.task('watch',['browser_Sync', 'compile_sass','checkJs'], function()
 {
     gulp.watch('app/scss/**/*.scss', ['compile_sass']);
-    gulp.watch('app/*.html', browserSync.reload);
-    gulp.watch('app/js/**/controller.js', ['js_dev']);
+    gulp.watch('app/**/*.html', browserSync.reload);
+    gulp.watch('app/scripts/*.js', ['checkJs']);
 });
 
 gulp.task('checkJs',function()
 {
-    return gulp.src('app/js/controller.js')
+    return gulp.src('app/scripts/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter(stylish))
         .pipe(browserSync.stream());
