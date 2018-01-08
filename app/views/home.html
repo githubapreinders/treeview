@@ -1,10 +1,13 @@
 
 <hr><hr>
-    <pre>{{vm.distortedText |json}}</pre>
-	<div style="width:40%;">
-		<div ui-tree id="tree-root">
-	      <ol ui-tree-nodes ng-model="vm.list">
-	        <li ng-repeat="node in vm.list" ui-tree-node ng-include="'./views/node_template.html'"></li>
-	      </ol>
-	    </div>
+	<div style="display:flex;">
+		<div style="width:40%;">
+			<div ui-tree id="tree-root">
+		      <ol ui-tree-nodes ng-model="vm.list">
+		        <li ng-repeat="node in vm.list" ui-tree-node ng-include="'./views/node_template.html'"></li>
+		      </ol>
+		    </div>
+		</div>
+		<div style="flex-grow:1;"></div>
+	    <pre contenteditable style="width: 40%;">{{vm.distortedText |json}}</pre>
 	</div>
