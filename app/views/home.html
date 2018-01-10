@@ -2,7 +2,7 @@
 <hr><hr>
 	<div style="display:flex;">
 		<div style="width:40%;">
-			<div ui-tree id="tree-root">
+			<div ui-tree="vm.treeOptions" id="tree-root">
 		      <ol ui-tree-nodes ng-model="vm.list">
 		        <li ng-repeat="node in vm.list" ui-tree-node ng-include="'./views/node_template.html'"></li>
 		      </ol>

@@ -9,7 +9,7 @@
 
     <!-- <input type="text" id="slot{{$index + 1}}" ng-model = "vm.theslots[$index].alias" ng-change="vm.modifyAlias('aliasslot{{$index + 1}}',vm.theslots[$index].alias)"> -->
 
-    <span id = "treeitem{{node.id}}">{{node.title}}</span>
+    <span name-giver  id ="treeitem{{node.id}}">{{node.title}}</span>
 
     <a class="pull-right btn btn-default btn-xs" data-nodrag ng-click="vm.changeName(this)"><span
         class="glyphicon glyphicon-pencil"></span></a>
