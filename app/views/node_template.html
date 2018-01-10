@@ -1,4 +1,5 @@
-<div ui-tree-handle class="tree-node tree-node-content">
+<div ui-tree-handle class="tree-node tree-node-content" ng-class = "{'tree-node-content-selected' : node.id === vm.selectedSlot} "  >
+    
     <a class="btn btn-default btn-xs" ng-if="node.isDirectory" data-nodrag ng-click="vm.toggle(this)"><span
         class="glyphicon"
         ng-class="{
@@ -6,10 +7,13 @@
           'glyphicon-folder-open': !collapsed
         }"></span></a>
     
+         <a class="btn btn-default btn-xs" ng-if="!node.isDirectory" data-nodrag ><span
+        class="glyphicon glyphicon-file" ng-click="vm.setSelectedSlot(this)"
+        ></span></a>
 
-    <!-- <input type="text" id="slot{{$index + 1}}" ng-model = "vm.theslots[$index].alias" ng-change="vm.modifyAlias('aliasslot{{$index + 1}}',vm.theslots[$index].alias)"> -->
-
-    <span name-giver  id ="treeitem{{node.id}}">{{node.title}}</span>
+<a href="#"   >
+    <span name-giver   id ="treeitem{{node.id}}"  >{{node.title}}</span>
+</a>
 
     <a class="pull-right btn btn-default btn-xs" data-nodrag ng-click="vm.changeName(this)"><span
         class="glyphicon glyphicon-pencil"></span></a>
@@ -19,6 +23,6 @@
       <span  class="glyphicon glyphicon-plus"></span></a>
 </div>
 <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
-  <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'./views/node_template.html'">
+  <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'./views/node_template.html'" >
   </li>
 </ol> 

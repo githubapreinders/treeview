@@ -8,6 +8,9 @@
 		      </ol>
 		    </div>
 		</div>
-		<div style="flex-grow:1;"></div>
-	    <pre contenteditable style="width: 40%;">{{vm.distortedText |json}}</pre>
+		<div style="flex-grow: 0.5"></div>
+		<div style="display:flex; flex-direction: column;height:100%;">
+		    <pre contenteditable style="height:300px;overflow-y:scroll; ">{{vm.distortedText |json}}</pre>
+		    <pre style="flex-grow:1;overflow-y:scroll;" >{{vm.mySlots | json}}</pre>
+		</div>    
 	</div>
