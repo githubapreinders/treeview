@@ -19,7 +19,7 @@
             vm.mySlots = ZipService.getSlots();
             vm.selectedSlot = "file1";
             var deleted;
-
+            vm.toggleView = false;
 
 
             //is called in home.html

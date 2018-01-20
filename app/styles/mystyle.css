@@ -1,3 +1,43 @@
+.mytreediv.ng-enter,
+.mytreediv.ng-leave,
+.mytreediv.ng-move {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all; }
+
+.mytreediv.ng-enter,
+.mytreediv.ng-move {
+  height: 0;
+  opacity: 0;
+  overflow: hidden; }
+
+.mytreediv.ng-enter.ng-enter-active,
+.mytreediv.ng-move.ng-move-active {
+  height: 120px;
+  opacity: 1; }
+
+.mytreediv.ng-leave {
+  opacity: 1;
+  overflow: hidden; }
+
+.mytreediv.ng-leave.ng-leave-active {
+  height: 0;
+  opacity: 0;
+  padding-bottom: 0;
+  padding-top: 0; }
+
+.mypre {
+  position: absolute;
+  top: 0px;
+  opacity: 1; }
+
+.mypre.ng-hide {
+  top: 50px;
+  opacity: 0; }
+
+.mypre.ng-hide-add, .mypre.ng-hide-remove {
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in; }
+
 .btn {
   margin-right: 8px; }
 

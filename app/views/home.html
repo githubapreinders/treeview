@@ -4,13 +4,20 @@
 		<div style="width:40%;">
 			<div ui-tree="vm.treeOptions" id="tree-root">
 		      <ol ui-tree-nodes ng-model="vm.list">
-		        <li ng-repeat="node in vm.list" ui-tree-node ng-include="'./views/node_template.html'"></li>
+		        <li class = "mytreediv" ng-repeat="node in vm.list" ui-tree-node ng-include="'./views/node_template.html'"></li>
 		      </ol>
 		    </div>
 		</div>
 		<div style="flex-grow: 0.5"></div>
-		<div style="display:flex; flex-direction: column;height:100%;">
-		    <pre contenteditable style="height:300px;overflow-y:scroll; ">{{vm.distortedText |json}}</pre>
-		    <pre style="flex-grow:1;overflow-y:scroll;" >{{vm.mySlots | json}}</pre>
+
+		<div style="display:flex; flex-direction: column;">
+		    <button class="btn btn-danger btn-lg" ng-click = "vm.toggleView = !vm.toggleView">toggle</button>
+
+		    <div style="flex-grow : 1; background: #cccccc;position:relative;">
+		    	<pre ng-hide = "vm.toggleView === true"  contenteditable class = "mypre" style="height:300px;overflow-y:scroll; ">{{vm.distortedText |json}}</pre>
+		    </div>
+
+		    <button class="btn btn-danger btn-lg" ng-click = "vm.toggleView = !vm.toggleView">toggle</button>
+
 		</div>    
 	</div>
